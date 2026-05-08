@@ -248,7 +248,7 @@
         <h4>Besøg</h4>
         <ul>
           <li>Hovedvejen 151b</li>
-          <li>4320 Osted</li>
+          <li>4320 Lejre</li>
           <li><a href="tel:22223314">22 22 33 14</a></li>
         </ul>
       </div>
@@ -258,6 +258,7 @@
         <ul>
           <li><a href="#features">Oplevelsen</a></li>
           <li><a href="#pricing">Priser</a></li>
+            <li><a href="cafe.html">Café Halmstrå</a></li>
           <li><a href="#testimonials">Anmeldelser</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
@@ -280,6 +281,36 @@
 </footer>
 
 
+<script>
 
+    document.querySelectorAll('a').forEach(link => {
+
+        const href = link.getAttribute('href');
+
+        if(
+            href &&
+            !href.startsWith('#') &&
+            !href.startsWith('tel:') &&
+            !href.startsWith('mailto:') &&
+            !link.hasAttribute('target')
+        ){
+
+            link.addEventListener('click', function(e){
+
+                e.preventDefault();
+
+                document.body.classList.add('fade-out');
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+
+            });
+
+        }
+
+    });
+
+</script>
 </body>
 </html>

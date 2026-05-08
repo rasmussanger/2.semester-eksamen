@@ -85,9 +85,9 @@
                 <h3>Sandwiches</h3>
 
                 <p>
-                    Kylling/bacon .......... 79 kr<br>
-                    Skinke/ost .......... 69 kr<br>
-                    Vegetar .......... 69 kr
+                    Kylling/bacon .......... 99 kr<br>
+                    Koldrøget laks/pesto .......... 99 kr<br>
+                    Vegetar .......... 99 kr
                 </p>
             </div>
 
@@ -98,9 +98,9 @@
                 <h3>Toast & Snacks</h3>
 
                 <p>
-                    Toast m. skinke/ost .......... 45 kr<br>
-                    Pommes frites .......... 39 kr<br>
-                    Nachos .......... 55 kr
+                    Panini m. skinke/ost .......... 69 kr<br>
+                    Pommes frites .......... 45 kr<br>
+                    Salat .......... 99 kr
                 </p>
             </div>
 
@@ -111,9 +111,9 @@
                 <h3>Is & Sødt</h3>
 
                 <p>
-                    Softice .......... fra 35 kr<br>
-                    Gammeldags isvaffel .......... fra 45 kr<br>
-                    Churros .......... 49 kr
+                    Softice .......... fra 29 kr<br>
+                    Gammeldags is .......... fra 25 kr<br>
+                    Belgisk vaffel m. softice .......... 65 kr
                 </p>
             </div>
 
@@ -126,8 +126,12 @@
 <section class="experience exp">
     <div class="container exp-grid">
 
-        <div class="exp-img">
-            <img src="images/cafe.jpg" alt="Café Halmstrå">
+        <div class="exp-img slideshow">
+
+            <img class="slide active" src="images/logo.png" alt="Café Halmstrå">
+            <img class="slide" src="images/logo.png" alt="Terrasse">
+            <img class="slide" src="images/logo.png" alt="Mad og drikke">
+
         </div>
 
         <div>
@@ -141,12 +145,11 @@
             <ul>
                 <li><span class="check">✓</span> Friskbrygget kaffe</li>
                 <li><span class="check">✓</span> Kolde sodavand</li>
-                <li><span class="check">✓</span> Slush ice til børnene</li>
+                <li><span class="check">✓</span> Øl, vin og vand</li>
                 <li><span class="check">✓</span> Lokale specialiteter</li>
                 <li><span class="check">✓</span> Masser af siddepladser ude & inde</li>
             </ul>
 
-            <a href="tel:22223314" class="btn btn-primary">Book bord / arrangement</a>
 
         </div>
     </div>
@@ -205,7 +208,7 @@
 
                 <ul>
                     <li>Hovedvejen 151b</li>
-                    <li>4320 Osted</li>
+                    <li>4320 Lejre</li>
                     <li><a href="tel:22223314">22 22 33 14</a></li>
                 </ul>
             </div>
@@ -216,10 +219,10 @@
                 <h4>Menu</h4>
 
                 <ul>
-                    <li><a href="/">Forside</a></li>
-                    <li><a href="/cafe-menu">Café Menu</a></li>
-                    <li><a href="/#pricing">Priser</a></li>
-                    <li><a href="/#contact">Kontakt</a></li>
+                    <li><a href="index.html">Forside</a></li>
+                    <li><a href="cafe.html">Café Menu</a></li>
+                    <li><a href="index.html">Priser</a></li>
+                    <li><a href="index.html">Kontakt</a></li>
                 </ul>
             </div>
 
@@ -246,5 +249,55 @@
     </div>
 </footer>
 
+
+<script>
+
+    document.querySelectorAll('a').forEach(link => {
+
+        const href = link.getAttribute('href');
+
+        if(
+            href &&
+            !href.startsWith('#') &&
+            !href.startsWith('tel:') &&
+            !href.startsWith('mailto:') &&
+            !link.hasAttribute('target')
+        ){
+
+            link.addEventListener('click', function(e){
+
+                e.preventDefault();
+
+                document.body.classList.add('fade-out');
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+
+            });
+
+        }
+
+    });
+
+</script>
+
+<script>
+
+    const slides = document.querySelectorAll('.slide');
+
+    let currentSlide = 0;
+
+    setInterval(() => {
+
+        slides[currentSlide].classList.remove('active');
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add('active');
+
+    }, 3500);
+
+</script>
 </body>
 </html>
